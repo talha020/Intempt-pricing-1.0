@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
       experiments: 0.2,
       insight: 0.5,
       predict: 0.2,
-      playbookz: 0.2,
       premium: 0.2
     };
     for (const [addon, multiplier] of Object.entries(addonMultipliers)) {
@@ -88,7 +87,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         experiments: 0.2,
         insight: 0.5,
         predict: 0.2,
-        playbookz: 0.2,
         premium: 0.2
       };
       let addonCosts = {};
@@ -127,7 +125,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       updateTextContent("#PredictCost", "$" + (addonCosts['predict'] ? addonCosts['predict'].toFixed(2) : "0.00"));
       updateTextContent("#PremiumCost", "$" + (addonCosts['premium'] ? addonCosts['premium'].toFixed(2) : "0.00"));
       updateTextContent("#GrowthCost", "$" + growthCost.toFixed(2));
-      updateTextContent("#PlaybookszCost", "$" + (addonCosts['playbookz'] ? addonCosts['playbookz'].toFixed(2) : "0.00"));
+   
       updateTextContent("#TotalCost", "$" + totval.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
       updateTextContent("#DataIntelligenceCostYearly", "$" + dataIntelligenceCostYearly.toFixed(2));
       updateTextContent("#JourneysCostYearly", "$" + (addonYearlyCosts['journeys'] ? addonYearlyCosts['journeys'].toFixed(2) : "0.00"));
@@ -137,7 +135,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       updateTextContent("#PremiumCostYearly", "$" + (addonYearlyCosts['premium'] ? addonYearlyCosts['premium'].toFixed(2) : "0.00"));
     
       updateTextContent("#GrowthCostYearly", "$" + growthCostYearly.toFixed(2));
-      updateTextContent("#PlaybookszCostYearly", "$" + (addonYearlyCosts['playbookz'] ? addonYearlyCosts['playbookz'].toFixed(2) : "0.00"));
+  
       updateTextContent("#TotalCostYearly", "$" + ftotal.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
     }
   }
@@ -216,7 +214,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       cost = 0.0268
     }
     return cost
-  } ['journeys', 'experiments', 'predict', 'insight', 'premium', 'playbookz', 'playbook'].forEach(addon => {
+  } ['journeys', 'experiments', 'predict', 'insight', 'premium', 'playbook'].forEach(addon => {
     document.getElementById(`${addon}Add`).addEventListener('click', function() {
       this.style.display = 'none';
       document.getElementById(`${addon}Remove`).style.display = 'inline';
